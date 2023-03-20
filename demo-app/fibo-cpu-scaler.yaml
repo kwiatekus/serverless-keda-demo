@@ -1,0 +1,19 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  labels:
+    app.kubernetes.io/name: fibo-cpu-scaler
+  name: fibo-cpu-scaler
+  namespace: default
+spec:
+  maxReplicaCount: 10
+  minReplicaCount: 1
+  scaleTargetRef:
+    apiVersion: serverless.kyma-project.io/v1alpha2
+    kind: Function
+    name: fibo-fn
+  triggers:
+  - metadata:
+      type: Utilization
+      value: "50"
+    type: cpu

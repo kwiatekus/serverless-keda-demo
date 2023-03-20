@@ -1,0 +1,7 @@
+generatorOptions:
+  disableNameSuffixHash: true
+secretGenerator:
+- name: serverless-registry-config
+  type: generic
+  envs:
+  - dockerconfig.env

@@ -1,0 +1,42 @@
+---
+apiVersion: serverless.kyma-project.io/v1alpha2
+kind: Function
+metadata:
+    creationTimestamp: null
+    labels:
+        app.kubernetes.io/name: fibo-fn
+    name: fibo-fn
+    namespace: default
+spec:
+    env:
+        - name: FIBONACCI_MIN
+          value: "5"
+        - name: FIBONACCI_MAX
+          value: "30"
+    runtime: nodejs18
+    source:
+        inline:
+            dependencies: |-
+                {
+                  "name": "function-agitated-damian8",
+                  "version": "0.0.1",
+                  "dependencies": {
+                    "fibonacci":"1.6.10"
+                  }
+                }
+            source: |
+                const fibonacci = require ('fibonacci');
+                module.exports = {
+                    main: function (event, context) {
+                        let fiboArg = between(parseInt(process.env['FIBONACCI_MIN'],10),parseInt(process.env['FIBONACCI_MAX'],10))
+                        console.log(`Calculating fibonacci series of ${fiboArg}...`);
+                        let fiboResult = fibonacci.iterate(fiboArg);
+                        console.log(`Result: ${fiboResult}`);
+                        return fiboResult;
+                    }
+                }
+
+                function between(min, max) {
+                    return Math.floor(Math.random() * (max - min) + min);
+                }
+

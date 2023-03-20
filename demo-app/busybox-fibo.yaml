@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: busybox-fibo
+  name: busybox-fibo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox-fibo
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: busybox-fibo
+    spec:
+      containers:
+      - image: busybox
+        name: busybox
+        command:
+         - "/bin/sh"
+         - "-c"
+         - "--"
+        args:
+          - "while true; do sleep $SLEEP; wget -q -O- $URL > /dev/null ; done"
+        env:
+          - name: URL
+            value: fibo-fn.default.svc.cluster.local
+          - name: SLEEP
+            value: '0.5'

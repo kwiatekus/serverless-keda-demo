@@ -1,0 +1,5 @@
+namespace: default
+resources:
+ - fibo-fn.yaml
+ - busybox-fibo.yaml
+ - fibo-cpu-scaler.yaml

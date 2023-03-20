@@ -1,0 +1,5 @@
+namespace: kyma-system
+resources:
+ - external-docker-registry
+ - serverless-ext.yaml
+ - https://raw.githubusercontent.com/kyma-project/keda-manager/main/config/samples/operator_v1alpha1_keda.yaml

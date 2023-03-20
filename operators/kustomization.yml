@@ -1,0 +1,5 @@
+namespace: kyma-system
+resources:
+ - https://github.com/kyma-project/serverless-manager/releases/latest/download/serverless-manager.yaml
+ - https://github.com/kyma-project/keda-manager/releases/latest/download/keda-manager.yaml
+ 

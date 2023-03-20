@@ -1,0 +1,8 @@
+apiVersion: operator.kyma-project.io/v1alpha1
+kind: Serverless
+metadata:
+  labels:
+  name: serverless-external-registry
+spec:
+  dockerRegistry:
+    secretName: serverless-registry-config

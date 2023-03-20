@@ -1,0 +1,10 @@
+name: function-agitated-damian8
+namespace: default
+runtime: nodejs16
+source:
+    sourceType: inline
+env:
+    - name: FIBONACCI_MIN
+      value: 5
+    - name: FIBONACCI_MAX
+      value: 30

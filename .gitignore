@@ -1,2 +1,3 @@
 modules/external-docker-registry/dockerconfig.env
 .DS_Store
+modules/external-docker-registry/docker-registry-overrides.yaml

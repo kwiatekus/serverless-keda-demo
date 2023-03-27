@@ -6,7 +6,6 @@ metadata:
     labels:
         app.kubernetes.io/name: fibo-fn
     name: fibo-fn
-    namespace: default
 spec:
     env:
         - name: FIBONACCI_MIN
